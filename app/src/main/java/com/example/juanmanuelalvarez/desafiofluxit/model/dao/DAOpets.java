@@ -49,6 +49,8 @@ public class DAOpets {
                     petList = petsContainer.getPetsList();
                     resultListener.finish(petList);
 
+                }else{
+                    System.out.println("error");
                 }
 
 

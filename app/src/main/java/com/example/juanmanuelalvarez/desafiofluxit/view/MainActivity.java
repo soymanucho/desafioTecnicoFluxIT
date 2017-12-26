@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
 
     private void getPetListFromApi() {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void finish(List<Pet> resultado) {
                 adapterListView.cargarNuevaLista(resultado);
+                adapterListView.notifyDataSetChanged();
             }
         });
 
