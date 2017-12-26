@@ -1,6 +1,7 @@
 package com.example.juanmanuelalvarez.desafiofluxit.model.dao;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.Pet;
@@ -39,25 +40,26 @@ public class DAOpets {
 
 
 
-        Call<PetsContainer> call = service.getPets();
-        call.enqueue(new Callback<PetsContainer>() {
+        Call<List<Pet>> call = service.getPets();
+        call.enqueue(new Callback<List<Pet>>() {
             @Override
-            public void onResponse(Call<PetsContainer> call, Response<PetsContainer> response) {
+            public void onResponse(Call<List<Pet>> call, Response<List<Pet>> response) {
                 if (response.isSuccessful()){
 
-                    PetsContainer petsContainer = response.body();
-                    petList = petsContainer.getPetsList();
+                    petList = response.body();
+
                     resultListener.finish(petList);
 
                 }else{
-                    System.out.println("error");
+                    Log.v("error","Error en response DAOpets");
                 }
 
 
             }
 
             @Override
-            public void onFailure(Call<PetsContainer> call, Throwable t) {
+            public void onFailure(Call<List<Pet>> call, Throwable t) {
+                    Log.v("error1",t.getMessage());
 
             }
         });

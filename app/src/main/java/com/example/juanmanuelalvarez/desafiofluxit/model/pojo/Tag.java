@@ -7,9 +7,9 @@ import org.simpleframework.xml.Element;
  */
 
 public class Tag {
-    @Element(name = "id")
+
     private String id;
-    @Element(name = "name")
+
     private String name;
 
     public String getId ()

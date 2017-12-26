@@ -6,10 +6,11 @@
     android:background="@color/colorAccent"
     >
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/list_view_pets_home">
-    </ListView>
+        android:id="@+id/recycler_view_home"
+        ></android.support.v7.widget.RecyclerView>
+
 
 </LinearLayout>

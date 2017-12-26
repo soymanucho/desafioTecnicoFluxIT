@@ -1,5 +1,7 @@
 package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
@@ -11,8 +13,22 @@ import java.util.List;
 
 class Tags {
 
-    @ElementList(name = "tags")
+    @SerializedName("tags")
     private List<Tag> tags;
+
+    private String status;
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public List<Tag> getTags ()
     {

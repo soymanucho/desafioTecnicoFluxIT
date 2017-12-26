@@ -1,29 +1,22 @@
 package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
-import org.simpleframework.xml.Element;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 /**
- * Created by Juan Manuel Alvarez on 23/12/2017.
+ * Created by Juan Manuel Alvarez on 26/12/2017.
  */
 
-class PhotoUrls {
-    @Element(name = "photoUrl")
-    private String photoUrl;
+public class PhotoUrls {
+    @SerializedName("photoUrls")
+    private List<PhotoUrl> photoUrls;
 
-    public String getPhotoUrl ()
-    {
-        return photoUrl;
+    public List<PhotoUrl> getPhotoUrls() {
+        return photoUrls;
     }
 
-    public void setPhotoUrl (String photoUrl)
-    {
-        this.photoUrl = photoUrl;
+    public void setPhotoUrls(List<PhotoUrl> photoUrls) {
+        this.photoUrls = photoUrls;
     }
-
-    @Override
-    public String toString()
-    {
-        return photoUrl;
-    }
-
 }

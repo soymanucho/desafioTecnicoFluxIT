@@ -1,6 +1,9 @@
 package com.example.juanmanuelalvarez.desafiofluxit.utils;
 
+import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.Pet;
 import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.PetsContainer;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -12,6 +15,6 @@ import retrofit2.http.GET;
 public interface RetrofitService {
 
     @GET("v2/pet/findByStatus?status=available")
-    Call<PetsContainer> getPets();
+    Call<List<Pet>> getPets();
 
 }

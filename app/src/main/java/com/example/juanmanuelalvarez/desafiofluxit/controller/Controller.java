@@ -1,7 +1,7 @@
 package com.example.juanmanuelalvarez.desafiofluxit.controller;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.util.Log;
 
 import com.example.juanmanuelalvarez.desafiofluxit.model.dao.DAOpets;
 import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.Pet;
@@ -22,13 +22,16 @@ public class Controller {
     }
 
     public void getListFromDaoPets(final ResultListener<List<Pet>> listenerActivity){
-        DAOpets daoPets = new DAOpets();
+        DAOpets DAOpets = new DAOpets();
 
-        daoPets.getPetsFromApi(new ResultListener<List<Pet>>() {
+        DAOpets.getPetsFromApi(new ResultListener<List<Pet>>() {
             @Override
             public void finish(List<Pet> resultado) {
                 if (resultado != null){
                     listenerActivity.finish(resultado);
+                }else{
+                    Log.v("error","Error en Controller");
+
                 }
             }
         });

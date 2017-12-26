@@ -6,11 +6,11 @@ import org.simpleframework.xml.Element;
  * Created by Juan Manuel Alvarez on 23/12/2017.
  */
 
-class Category {
+public class Category {
 
-    @Element(name = "id")
+
     private String id;
-    @Element(name = "name")
+
     private String name;
 
     public String getId ()

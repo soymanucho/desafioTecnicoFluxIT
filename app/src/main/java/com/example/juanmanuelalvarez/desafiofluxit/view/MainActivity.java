@@ -2,6 +2,9 @@ package com.example.juanmanuelalvarez.desafiofluxit.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private AdapterPetsListViewHome adapterListView;
     private List<Pet> petsList;
     private Controller controller;
+    private RecyclerView recyclerView;
+    private AdapterRecyclerViewHome adapterRecyclerViewHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         getPetListFromApi();
 
-        listViewPetsHome = findViewById(R.id.list_view_pets_home);
+        recyclerView = findViewById(R.id.recycler_view_home);
 
-        adapterListView = new AdapterPetsListViewHome(this,petsList);
-        listViewPetsHome.setAdapter(adapterListView);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        adapterRecyclerViewHome = new AdapterRecyclerViewHome(this,petsList);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapterRecyclerViewHome);
+        recyclerView.setHasFixedSize(true);
+
+        // listViewPetsHome = findViewById(R.id.list_view_pets_home);
+
+        // adapterListView = new AdapterPetsListViewHome(this,petsList);
+        // listViewPetsHome.setAdapter(adapterListView);
 
 
 
@@ -48,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
         controller.getListFromDaoPets(new ResultListener<List<Pet>>() {
             @Override
             public void finish(List<Pet> resultado) {
-                adapterListView.cargarNuevaLista(resultado);
-                adapterListView.notifyDataSetChanged();
+
+                adapterRecyclerViewHome.cargarNuevaLista(resultado);
+                adapterRecyclerViewHome.notifyDataSetChanged();
+
+                // adapterListView.cargarNuevaLista(resultado);
+                // adapterListView.notifyDataSetChanged();
             }
         });
 

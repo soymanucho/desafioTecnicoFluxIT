@@ -1,26 +1,24 @@
 package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
-import org.simpleframework.xml.Element;
-import org.simpleframework.xml.Root;
+import java.util.List;
 
 /**
  * Created by Juan Manuel Alvarez on 23/12/2017.
  */
-@Root(name = "Pet")
+
 public class Pet {
 
-    @Element(name = "id")
     private String id;
-    @Element(name = "tags")
-    private Tags tags;
-    @Element(name = "category")
+
+    private List<Tags> tags;
+
     private Category category;
-    @Element(name = "status")
+
     private String status;
-    @Element(name = "name")
+
     private String name;
-    @Element(name = "photoUrls")
-    private PhotoUrls photoUrls;
+
+    private PhotoUrl photoUrl;
 
     public String getId (){
         return id;
@@ -30,11 +28,11 @@ public class Pet {
         this.id = id;
     }
 
-    public Tags getTags (){
+    public List<Tags> getTags() {
         return tags;
     }
 
-    public void setTags (Tags tags){
+    public void setTags(List<Tags> tags) {
         this.tags = tags;
     }
 
@@ -62,12 +60,12 @@ public class Pet {
         this.name = name;
     }
 
-    public PhotoUrls getPhotoUrls (){
-        return photoUrls;
+    public PhotoUrl getPhotoUrl(){
+        return photoUrl;
     }
 
-    public void setPhotoUrls (PhotoUrls photoUrls){
-        this.photoUrls = photoUrls;
+    public void setPhotoUrl(PhotoUrl photoUrl){
+        this.photoUrl = photoUrl;
     }
 
     @Override

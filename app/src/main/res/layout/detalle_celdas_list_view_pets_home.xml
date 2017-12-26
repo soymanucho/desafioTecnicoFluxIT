@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
+    android:layout_marginBottom="2dp"
     >
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="25dp"
         android:id="@+id/text_view_pet_name"
         android:text="Pet Name"
         android:textColor="#ffffff"
