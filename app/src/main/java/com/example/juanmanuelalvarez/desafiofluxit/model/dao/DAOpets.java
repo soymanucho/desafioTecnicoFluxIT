@@ -27,6 +27,7 @@ public class DAOpets {
 
     private List<Pet> petList;
     private Retrofit retrofit;
+    private Pet petRecieved;
 
 
     public void getPetsFromApi(final ResultListener<List<Pet>> resultListener) {
@@ -51,7 +52,7 @@ public class DAOpets {
                     resultListener.finish(petList);
 
                 }else{
-                    Log.v("error","Error en response DAOpets");
+                    Log.v("error","Error en response DAOpetsList");
                 }
 
 
@@ -66,4 +67,34 @@ public class DAOpets {
 
     }
 
+    public void getPetFromApiWithId(String idPetRecieved, final ResultListener<Pet> resultListener) {
+
+        petRecieved = new Pet();
+
+        retrofit = new RetrofitAdapter().getAdapter();
+
+        RetrofitService service = retrofit.create(RetrofitService.class);
+
+        Call<Pet> call = service.getPetWithId(idPetRecieved);
+
+        call.enqueue(new Callback<Pet>() {
+            @Override
+            public void onResponse(Call<Pet> call, Response<Pet> response) {
+                if (response.isSuccessful()){
+                    petRecieved = response.body();
+                    resultListener.finish(petRecieved);
+                }else{
+                    Log.v("error2","Error en response DAOpetsWithID");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Pet> call, Throwable t) {
+                Log.v("error3",t.getMessage());
+            }
+        });
+
+
+
+    }
 }

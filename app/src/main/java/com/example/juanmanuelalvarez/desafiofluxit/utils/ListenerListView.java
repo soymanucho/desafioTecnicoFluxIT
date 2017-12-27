@@ -24,7 +24,8 @@ public class ListenerListView implements AdapterView.OnItemClickListener {
         Intent intent = new Intent(context,PetDetailActivity.class);
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable("pet",pet);
+        // bundle.putSerializable("pet",pet);
+        bundle.putString("id",pet.getId());
 
         intent.putExtras(bundle);
 

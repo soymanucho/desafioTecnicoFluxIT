@@ -37,4 +37,17 @@ public class Controller {
         });
     }
 
+    public void getPetDetailFromDaoWithId(String idPetRecieved, final ResultListener<Pet> resultListenerActivity) {
+
+        DAOpets daOpets = new DAOpets();
+
+        daOpets.getPetFromApiWithId(idPetRecieved, new ResultListener<Pet>() {
+            @Override
+            public void finish(Pet resultado) {
+                resultListenerActivity.finish(resultado);
+            }
+        });
+
+
+    }
 }

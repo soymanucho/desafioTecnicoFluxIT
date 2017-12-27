@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorAzul"
+    >
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Pet name"
+        android:id="@+id/txt_view_pet_name_detail"
+        android:gravity="center"
+        android:textColor="@color/colorBlanco"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="20"
+            android:layout_height="wrap_content"
+            android:text="ID n°:"
+            android:gravity="center"
+            android:textColor="@color/colorBlanco"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="80"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_view_pet_id_detail"
+            android:textColor="@color/colorBlanco"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
