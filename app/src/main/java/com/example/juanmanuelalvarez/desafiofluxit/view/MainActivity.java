@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.juanmanuelalvarez.desafiofluxit.R;
 import com.example.juanmanuelalvarez.desafiofluxit.controller.Controller;
 import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.Pet;
+import com.example.juanmanuelalvarez.desafiofluxit.utils.ListenerListView;
 import com.example.juanmanuelalvarez.desafiofluxit.utils.ResultListener;
 import com.example.juanmanuelalvarez.desafiofluxit.view.AdapterPetsListViewHome;
 
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         adapterListView = new AdapterPetsListViewHome(this,petsList);
         listViewPetsHome.setAdapter(adapterListView);
+
+        ListenerListView listener = new ListenerListView();
+        listViewPetsHome.setOnItemClickListener(listener);
 
 
 

@@ -19,7 +19,7 @@ public class RetrofitAdapter {
     public Retrofit getAdapter(){
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://petstore.swagger.io/v2")
+                .baseUrl("http://petstore.swagger.io/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

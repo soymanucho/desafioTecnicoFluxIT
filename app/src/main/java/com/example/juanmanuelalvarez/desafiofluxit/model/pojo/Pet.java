@@ -1,12 +1,13 @@
 package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Juan Manuel Alvarez on 23/12/2017.
  */
 
-public class Pet {
+public class Pet implements Serializable {
 
     private String id;
 
