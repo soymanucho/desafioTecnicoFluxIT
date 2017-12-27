@@ -37,19 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         getPetListFromApi();
 
-        recyclerView = findViewById(R.id.recycler_view_home);
+        //recyclerView = findViewById(R.id.recycler_view_home);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        adapterRecyclerViewHome = new AdapterRecyclerViewHome(this,petsList);
+        //LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        //adapterRecyclerViewHome = new AdapterRecyclerViewHome(this,petsList);
 
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(adapterRecyclerViewHome);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setAdapter(adapterRecyclerViewHome);
+        //recyclerView.setHasFixedSize(true);
 
-        // listViewPetsHome = findViewById(R.id.list_view_pets_home);
+        listViewPetsHome = findViewById(R.id.list_view_pets_home);
 
-        // adapterListView = new AdapterPetsListViewHome(this,petsList);
-        // listViewPetsHome.setAdapter(adapterListView);
+        adapterListView = new AdapterPetsListViewHome(this,petsList);
+        listViewPetsHome.setAdapter(adapterListView);
 
 
 
@@ -63,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void finish(List<Pet> resultado) {
 
-                adapterRecyclerViewHome.cargarNuevaLista(resultado);
-                adapterRecyclerViewHome.notifyDataSetChanged();
+               // adapterRecyclerViewHome.cargarNuevaLista(resultado);
+               // adapterRecyclerViewHome.notifyDataSetChanged();
 
-                // adapterListView.cargarNuevaLista(resultado);
-                // adapterListView.notifyDataSetChanged();
+                adapterListView.cargarNuevaLista(resultado);
+                adapterListView.notifyDataSetChanged();
             }
         });
 

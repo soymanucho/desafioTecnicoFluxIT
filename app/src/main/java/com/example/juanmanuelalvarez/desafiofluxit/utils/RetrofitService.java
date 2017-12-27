@@ -14,7 +14,7 @@ import retrofit2.http.GET;
 
 public interface RetrofitService {
 
-    @GET("v2/pet/findByStatus?status=available")
+    @GET("/pet/findByStatus?status=available")
     Call<List<Pet>> getPets();
 
 }
