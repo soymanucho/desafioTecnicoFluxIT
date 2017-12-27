@@ -1,9 +1,11 @@
 package com.example.juanmanuelalvarez.desafiofluxit.view;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -13,15 +15,21 @@ import com.example.juanmanuelalvarez.desafiofluxit.controller.Controller;
 import com.example.juanmanuelalvarez.desafiofluxit.model.pojo.Pet;
 import com.example.juanmanuelalvarez.desafiofluxit.utils.ResultListener;
 
+import java.util.List;
+
 public class PetDetailActivity extends AppCompatActivity {
 
     private Pet petRecieved;
     private String idPetRecieved;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
+    private List<Fragment> fragmentList;
 
     private Controller controller;
 
     private FragmentPetDetail fragmentPetDetail;
+    private FragmentPetNotDetail fragmentPetNotDetail;
 
 
 
@@ -31,6 +39,14 @@ public class PetDetailActivity extends AppCompatActivity {
         setContentView(R.layout.layout_activity_pet_detail);
 
         fragmentPetDetail = new FragmentPetDetail();
+        fragmentPetNotDetail = new FragmentPetNotDetail();
+
+
+        viewPager = findViewById(R.id.view_pager_fragments);
+        tabLayout = findViewById(R.id.tab_layout);
+
+
+
 
         Intent intent = getIntent();
 
@@ -46,13 +62,15 @@ public class PetDetailActivity extends AppCompatActivity {
             public void finish(Pet resultado) {
                 petRecieved = resultado;
 
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("pet",petRecieved);
-                fragmentPetDetail.setArguments(bundle);
-                cargarFragment(fragmentPetDetail);
-
+                FragmentPageAdapter adapter = new FragmentPageAdapter(getSupportFragmentManager(),petRecieved);
+                viewPager.setAdapter(adapter);
+                tabLayout.setupWithViewPager(viewPager);
+                tabLayout.getTabAt(0).setIcon(R.drawable.ic_details_white_24dp);
+                tabLayout.getTabAt(1).setIcon(R.drawable.ic_more_horiz_white_24dp);
             }
         });
+
+
 
 
     }
@@ -61,9 +79,13 @@ public class PetDetailActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.contenedor_fragments_detail_activity,fragment);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        petRecieved=null;
+    }
 }

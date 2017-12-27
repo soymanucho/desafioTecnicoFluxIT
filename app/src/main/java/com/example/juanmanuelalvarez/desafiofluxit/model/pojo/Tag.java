@@ -2,11 +2,13 @@ package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
 import org.simpleframework.xml.Element;
 
+import java.io.Serializable;
+
 /**
  * Created by Juan Manuel Alvarez on 23/12/2017.
  */
 
-public class Tag {
+public class Tag implements Serializable{
 
     private String id;
 

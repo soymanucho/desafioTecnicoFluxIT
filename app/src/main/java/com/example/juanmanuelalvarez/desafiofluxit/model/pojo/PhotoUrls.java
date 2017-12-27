@@ -2,13 +2,14 @@ package com.example.juanmanuelalvarez.desafiofluxit.model.pojo;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Juan Manuel Alvarez on 26/12/2017.
  */
 
-public class PhotoUrls {
+public class PhotoUrls implements Serializable{
     @SerializedName("photoUrls")
     private List<PhotoUrl> photoUrls;
 

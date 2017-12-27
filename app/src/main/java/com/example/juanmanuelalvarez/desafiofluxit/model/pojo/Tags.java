@@ -5,13 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Juan Manuel Alvarez on 23/12/2017.
  */
 
-class Tags {
+class Tags implements Serializable{
 
     @SerializedName("tags")
     private List<Tag> tags;

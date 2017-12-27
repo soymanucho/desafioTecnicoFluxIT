@@ -4,10 +4,19 @@
     android:layout_height="match_parent"
     tools:context="com.example.juanmanuelalvarez.desafiofluxit.view.FragmentPetNotDetail">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Como no sabía que poner, puse esta imagen."
+        android:gravity="center"
+        android:textColor="@color/colorBlanco"
+        android:elevation="6dp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/_dsc6316"
+        android:scaleType="centerCrop"
+        />
+
 
 </FrameLayout>

@@ -16,7 +16,12 @@ public class FragmentPetNotDetail extends Fragment {
 
 
     public FragmentPetNotDetail() {
-        // Required empty public constructor
+
+    }
+
+    public static FragmentPetNotDetail createFragment(){
+        FragmentPetNotDetail fragmentPetNotDetail = new FragmentPetNotDetail();
+        return fragmentPetNotDetail;
     }
 
 

@@ -18,10 +18,20 @@ public class FragmentPetDetail extends Fragment {
 
     private TextView txtViewPetNameDetail;
     private TextView txtViewPetIdDetail;
+    private TextView txtViewPetCategoryDetail;
+    private TextView txtViewPetStatusDetail;
+
     private Pet petRecieved;
 
     public FragmentPetDetail() {
-        // Required empty public constructor
+    }
+
+    public static FragmentPetDetail createFragment(Pet pet){
+        FragmentPetDetail fragmentPetDetail = new FragmentPetDetail();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("pet",pet);
+        fragmentPetDetail.setArguments(bundle);
+        return fragmentPetDetail;
     }
 
 
@@ -35,12 +45,24 @@ public class FragmentPetDetail extends Fragment {
 
         txtViewPetNameDetail = view.findViewById(R.id.txt_view_pet_name_detail);
         txtViewPetIdDetail = view.findViewById(R.id.txt_view_pet_id_detail);
-
+        txtViewPetCategoryDetail = view.findViewById(R.id.txt_view_pet_category_detail);
+        txtViewPetStatusDetail = view.findViewById(R.id.txt_view_pet_status_detail);
 
         txtViewPetNameDetail.setText(petRecieved.getName());
         txtViewPetIdDetail.setText(petRecieved.getId());
+        if (petRecieved.getCategory()!=null){
+            txtViewPetCategoryDetail.setText(petRecieved.getCategory().toString());
+        }else{
+            txtViewPetCategoryDetail.setText("");
+        }
+
+        txtViewPetStatusDetail.setText(petRecieved.getStatus());
 
         return view;
+    }
+
+    public String getPetName(){
+       return petRecieved.getName();
     }
 
 }
